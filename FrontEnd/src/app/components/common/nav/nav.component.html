@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [opened]="false">
+    <mat-toolbar>
+      <mat-toolbar-row class="nav-row">
+       
+          <span class="circle-link">
+            <img src="../../../../assets/presentation1.svg" >
+          </span>
+          {{appTitle}}
+      
+          
+       
+      </mat-toolbar-row>
+     
+      <mat-toolbar-row class="tb-distribute">
+        <span>Menu</span>
+        <a mat-icon-button><mat-icon>settings</mat-icon></a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <ng-material-multilevel-menu  
+    [configuration]='config' 
+    [items]='items'
+    >
+</ng-material-multilevel-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        style="margin-right: 15px;"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="circle-link">
+        <img src="../../../../assets/presentation1.svg" >
+      </span>
+      {{appTitle}}
+    </mat-toolbar>
+    <div class="conatiner">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
